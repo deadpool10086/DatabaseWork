@@ -1,0 +1,46 @@
+.biaoge1 {
+	margin: -100px auto;
+	text-align: center;
+}
+.biaoge2{
+	text-align: center;
+	margin: 0 0 0 200px;
+	font-size: 20px;
+}
+.biaoge2 td
+{
+	width: 200px;
+}
+.liebiao1 {
+	background: #750000;
+}
+.liebiao2{
+	background: #842B00;
+}
+.biaoti {
+	background: #222;
+	height: 40px;
+}
+.biaoti2{
+	background: #222;
+	height: 40px;
+}
+.mtb1 {
+	width: 130px;
+}
+.geren
+{
+	font-size: 20px;
+	color: white;
+	margin: 0;
+}
+.tijiao{
+	position:relative;
+	text-align: center;
+}
+.tijiao form{
+	display: inline;
+}
+.biaoge7 input{
+	width: 75px;
+}

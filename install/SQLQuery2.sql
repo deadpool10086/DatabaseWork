@@ -1,0 +1,6 @@
+USE work;
+DROP TABLE Wsta;
+DROP TABLE Wage;
+DROP TABLE Worker;
+DROP TABLE Depart;
+DROP TABLE Wtype;

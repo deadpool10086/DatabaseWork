@@ -6,8 +6,18 @@
 		$sql = "SELECT * FROM Worker WHERE WID = '".$_COOKIE['username']."'";
 		if($_res = _fetch_array($sql))
 		{
-			if(isset($_GET['action']))
+			$_cxmz  = $_COOKIE['username'];
+			if(isset($_GET['action'])&&$_COOKIE['username']=='00000001' )
 			{
+				if($_GET['action'] == 'cxmz')
+				{
+					if (_fetch_array("SELECT * FROM Worker WHERE WID = '".iconv('UTF-8','GBK',$_POST['WID'])."'"))
+						$_cxmz  = iconv('UTF-8','GBK',$_POST['WID']);
+					else
+						_alert_back("该用户不存在");
+				}
+				else
+				{
 				if($_GET['action'] == 'fire' && _fetch_array("SELECT * FROM Worker WHERE WID = '".$_POST['WID']."'"))
 				{
 					$sql = "DELETE FROM worker WHERE WID = '".$_POST['WID']."'";
@@ -60,6 +70,7 @@
 				else
 				{
 					_alert_back("数据变动失败请检查数据是否符合规范！");
+				}
 				}
 			}
 		}
@@ -173,7 +184,7 @@
 									<td class="mtb1">总计</td>
 								</tr>
 								<?php
-									$_result = _query("SELECT * FROM gongzi WHERE WID = '".$_COOKIE['username']."'"); 
+									$_result = _query("SELECT * FROM gongzi WHERE WID = '".$_cxmz."'"); 
 									while (!!$_rows = _fetch_array_list($_result)) {?>
 								<tr>
 									<td><?php echo $_rows[0]; ?></td>
@@ -187,6 +198,10 @@
 									<td><?php echo $_rows[8] ?></td>
 								</tr>
 								<?php  } ?>
+								<td colSpan=9><form method="post" name="login" action="index.php?action=cxmz" id="mamai">
+								<input type="text" name="WID">
+								<input type="submit" value="查询员工">
+								</form></td>
 							</table>
 						</div>
 					</div>
@@ -236,7 +251,7 @@
 					<h2 class="to-animate">工司情况</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>深圳瑞宝电脑技术服务有限公司，成立于2008年，我公司为各行各业提供专业的it技术服务，经过3年多的努力与发展，已具一定的规模及实力，现拥有一支技术精湛的it服务团队，以卓越的服务品质、专业安全的技术服务实力，为不同群体的用户提供更高更优质的it服务。</h3>
+							<h3>xzit服务有限公司，成立于2008年，我公司为各行各业提供专业的it技术服务，经过3年多的努力与发展，已具一定的规模及实力，现拥有一支技术精湛的it服务团队，以卓越的服务品质、专业安全的技术服务实力，为不同群体的用户提供更高更优质的it服务。</h3>
 						</div>
 					</div>
 				</div>
